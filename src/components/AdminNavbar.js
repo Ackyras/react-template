@@ -1,4 +1,4 @@
-import {useLocation, useHistory} from "react-router-dom";
+import {useLocation} from "react-router-dom";
 import Button from "@material-tailwind/react/Button";
 import Icon from "@material-tailwind/react/Icon";
 import NavbarInput from "@material-tailwind/react/NavbarInput";
@@ -10,12 +10,6 @@ import ProfilePicture from "assets/img/team-1-800x800.jpg";
 export default function AdminNavbar({showSidebar, setShowSidebar}) {
     const location = useLocation().pathname;
     // const navigate = useNavigate();
-    const history = useHistory();
-
-    const logout = () => {
-        localStorage.removeItem("token");
-        history.push("/login");
-    };
 
     return (
         <nav className="bg-light-blue-500 md:ml-64 py-6 px-3">

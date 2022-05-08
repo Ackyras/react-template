@@ -11,7 +11,7 @@ import DefaultNavbar from "components/DefaultNavbar";
 import SimpleFooter from "components/SimpleFooter";
 import Page from "components/login/Page";
 import Container from "components/login/Container";
-import {URL, baseURL} from "./../utils/constanta";
+import {URL} from "./../utils/constanta";
 import axios from "axios";
 import apiClient from "../utils/api";
 import {useHistory} from "react-router-dom";
@@ -19,13 +19,11 @@ import {useHistory} from "react-router-dom";
 export default function Login() {
     const [email, setEmail] = useState({value: "", error: ""});
     const [password, setPassword] = useState({value: "", error: ""});
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const history = useHistory();
 
     const authCheck = () => {
         const token = localStorage.getItem("token");
         if (token) {
-            setIsLoggedIn(true);
             console.log("loggedin");
             history.push("/");
         }
@@ -76,7 +74,7 @@ export default function Login() {
     useEffect(() => {
         authCheck();
         checkConnection();
-    }, []);
+    });
 
     return (
         <Page>
