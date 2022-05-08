@@ -5,7 +5,8 @@ import Login from "pages/Login";
 import Register from "pages/Register";
 
 // Font Awesome Style Sheet
-import "@fortawesome/fontawesome-free/css/all.min.css";
+import "@fortawesome/fontawesome-free/css/all.css";
+// import "@fortawesome/fontawesome-free/css/all.min.css";
 
 // Tailwind CSS Style Sheet
 import "assets/auth/tailwind.css";

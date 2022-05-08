@@ -6,13 +6,16 @@ import Settings from "pages/Settings";
 import Tables from "pages/Tables";
 import Maps from "pages/Maps";
 import Footer from "components/Footer";
-import Landing from "pages/Landing";
 import Profile from "pages/Profile";
+import Landing from "pages/Landing";
 import Login from "pages/Login";
 import Register from "pages/Register";
 
 // Tailwind CSS Style Sheet
 import "assets/styles/tailwind.css";
+
+// import "@fortawesome/fontawesome-free/css/all.min.css";
+import "@fortawesome/fontawesome-free/css/all.css";
 
 function App() {
     // UseEffect(() => {});
@@ -27,6 +30,9 @@ function App() {
                     <Route exact path="/tables" component={Tables} />
                     <Route exact path="/maps" component={Maps} />
                     <Route exact path="/profile" component={Profile} />
+                    <Route exact path="/landing" component={Landing} />
+                    <Route exact path="/login" component={Login} />
+                    <Route exact path="/register" component={Register} />
                     <Redirect from="*" to="/" />
                 </Switch>
                 <Footer />

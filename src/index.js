@@ -8,7 +8,7 @@ import reportWebVitals from "./reportWebVitals";
 ReactDOM.render(
     <React.StrictMode>
         <BrowserRouter>
-            {localStorage.getItem("user") ? <App /> : <Auth />}
+            <App />
         </BrowserRouter>
     </React.StrictMode>,
     document.getElementById("root")

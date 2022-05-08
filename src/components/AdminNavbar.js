@@ -1,14 +1,21 @@
-import { useLocation } from 'react-router-dom';
-import Button from '@material-tailwind/react/Button';
-import Icon from '@material-tailwind/react/Icon';
-import NavbarInput from '@material-tailwind/react/NavbarInput';
-import Image from '@material-tailwind/react/Image';
-import Dropdown from '@material-tailwind/react/Dropdown';
-import DropdownItem from '@material-tailwind/react/DropdownItem';
-import ProfilePicture from 'assets/img/team-1-800x800.jpg';
+import {useLocation, useHistory} from "react-router-dom";
+import Button from "@material-tailwind/react/Button";
+import Icon from "@material-tailwind/react/Icon";
+import NavbarInput from "@material-tailwind/react/NavbarInput";
+import Image from "@material-tailwind/react/Image";
+import Dropdown from "@material-tailwind/react/Dropdown";
+import DropdownItem from "@material-tailwind/react/DropdownItem";
+import ProfilePicture from "assets/img/team-1-800x800.jpg";
 
-export default function AdminNavbar({ showSidebar, setShowSidebar }) {
+export default function AdminNavbar({showSidebar, setShowSidebar}) {
     const location = useLocation().pathname;
+    // const navigate = useNavigate();
+    const history = useHistory();
+
+    const logout = () => {
+        localStorage.removeItem("token");
+        history.push("/login");
+    };
 
     return (
         <nav className="bg-light-blue-500 md:ml-64 py-6 px-3">
@@ -21,13 +28,13 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }) {
                         iconOnly
                         rounded
                         ripple="light"
-                        onClick={() => setShowSidebar('left-0')}
+                        onClick={() => setShowSidebar("left-0")}
                     >
                         <Icon name="menu" size="2xl" color="white" />
                     </Button>
                     <div
                         className={`absolute top-2 md:hidden ${
-                            showSidebar === 'left-0' ? 'left-64' : '-left-64'
+                            showSidebar === "left-0" ? "left-64" : "-left-64"
                         } z-50 transition-all duration-300`}
                     >
                         <Button
@@ -37,7 +44,7 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }) {
                             iconOnly
                             rounded
                             ripple="light"
-                            onClick={() => setShowSidebar('-left-64')}
+                            onClick={() => setShowSidebar("-left-64")}
                         >
                             <Icon name="close" size="2xl" color="white" />
                         </Button>
@@ -46,9 +53,9 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }) {
 
                 <div className="flex justify-between items-center w-full">
                     <h4 className="uppercase text-white text-sm tracking-wider mt-1">
-                        {location === '/'
-                            ? 'DASHBOARD'
-                            : location.toUpperCase().replace('/', '')}
+                        {location === "/"
+                            ? "DASHBOARD"
+                            : location.toUpperCase().replace("/", "")}
                     </h4>
 
                     <div className="flex">
@@ -65,7 +72,7 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }) {
                                 rounded
                                 style={{
                                     padding: 0,
-                                    color: 'transparent',
+                                    color: "transparent",
                                 }}
                             >
                                 <DropdownItem color="lightBlue">
@@ -75,7 +82,7 @@ export default function AdminNavbar({ showSidebar, setShowSidebar }) {
                                     Another Action
                                 </DropdownItem>
                                 <DropdownItem color="lightBlue">
-                                    Something Else
+                                    logout
                                 </DropdownItem>
                             </Dropdown>
                         </div>
